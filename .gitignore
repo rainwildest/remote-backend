@@ -1,0 +1,5 @@
+node_modules/
+src/generated/
+.next/
+prisma/migrations
+prisma/*.db
