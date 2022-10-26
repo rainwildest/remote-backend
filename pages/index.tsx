@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
+import io from "socket.io-client";
+import { useEffect } from "react";
 
 const FeedQuery = gql`
   query FeedQuery {
@@ -18,6 +20,7 @@ const FeedQuery = gql`
   }
 `;
 
+let socket = null;
 const Post = ({ post }) => (
   <Link href="/p/[id]" as={`/p/${post.id}`}>
     <a>
@@ -37,9 +40,26 @@ const Post = ({ post }) => (
 );
 
 const Blog = () => {
+  const clineOnline = () => {
+    socket.emit("clientOnline", "用户id");
+  };
+
   const { loading, error, data } = useQuery(FeedQuery, {
     fetchPolicy: "cache-and-network"
   });
+
+  useEffect(() => {
+    if (!socket) {
+      socket = io("http://localhost:3000");
+    }
+    document.addEventListener("visibilitychange", function () {
+      const isHidden = document.hidden;
+      console.log(isHidden);
+      if (!isHidden) {
+        clineOnline();
+      }
+    });
+  }, []);
 
   if (loading) {
     return <div>Loading ...</div>;

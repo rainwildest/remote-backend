@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
-import { Prisma } from "@prisma/client";
 
 export default async (
   req: NextApiRequest,
@@ -15,7 +14,6 @@ export default async (
   kk.then(val => {
     console.log(val);
   });
-
   const k = prisma.$queryRaw`SELECT * FROM User where id=2`;
   // const k = prisma.$queryRaw(Prisma.sql`SELECT * FROM User WHERE id=2`);
   k.then(val => {
