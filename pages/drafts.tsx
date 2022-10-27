@@ -19,7 +19,7 @@ const DraftsQuery = gql`
 `;
 
 const Post = ({ post }) => (
-  <Link href="/p/[id]" as={`/p/${post.id}`}>
+  <Link href="/p/[id]" as={`/p/${post.id}`} legacyBehavior>
     <a>
       <h2>{post.title}</h2>
       <small>By {post.author ? post.author.name : "Unknown Author"}</small>
