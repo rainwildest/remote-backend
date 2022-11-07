@@ -1,7 +1,7 @@
-export function getData(numSamples) {
+export function getData(numSamples: number) {
   const points = [];
 
-  function genGauss(cx, cy, label) {
+  function genGauss(cx: number, cy: number, label: number) {
     for (let i = 0; i < numSamples / 2; i++) {
       const x = normalRandom(cx);
       const y = normalRandom(cy);
@@ -17,7 +17,7 @@ export function getData(numSamples) {
 }
 
 const normalRandom = (mean = 0, variance = 1) => {
-  let v1, v2, s;
+  let v1: number, v2: number, s: number;
   do {
     v1 = 2 * Math.random() - 1;
     v2 = 2 * Math.random() - 1;
