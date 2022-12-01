@@ -5,8 +5,8 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: "module",
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   // settings: {
   //   react: {
@@ -16,14 +16,14 @@ module.exports = {
   env: {
     browser: true,
     amd: true,
-    node: true,
+    node: true
   },
   plugins: ["@typescript-eslint"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
 
   rules: {
@@ -40,6 +40,6 @@ module.exports = {
     "init-declarations": "off", //声明时必须赋初值
     "@typescript-eslint/no-var-requires": "off",
     "no-empty": "off",
-    eqeqeq: ["error", "always"],
-  },
-}
+    eqeqeq: ["error", "always"]
+  }
+};
